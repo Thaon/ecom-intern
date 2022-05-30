@@ -71,6 +71,7 @@ function Cart() {
         <Grid
           container
           justifyContent={"center"}
+          item
           xs={6}
           sx={{ height: "80vh", overflow: "scroll" }}
         >

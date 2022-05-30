@@ -10,13 +10,14 @@ import ShopLayout from "layouts/ShopLayout";
 import NavBar from "components/NavBar";
 
 // static data
-import { products } from "utils/staticData";
+import data from "utils/staticData";
 
 export default function ProductDetails() {
   const router = useRouter();
   const { id } = router.query;
   const { addItem } = useCart();
 
+  const products = data.products;
   const product = products.find((product) => product.id == id);
 
   if (!product) {

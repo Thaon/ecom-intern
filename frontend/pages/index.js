@@ -10,9 +10,11 @@ import NavBar from "components/NavBar";
 import HoverBox from "components/HoverBox";
 
 // static data
-import { products } from "utils/staticData";
+import data from "utils/staticData";
 
 export default function Home() {
+  const products = data.products;
+
   const router = useRouter();
   return (
     <ShopLayout navbar={<NavBar title={"My Ecommerce!"} />}>
