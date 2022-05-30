@@ -102,8 +102,7 @@ export default function Navbar(props) {
           <Typography
             variant="h6"
             noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block", cursor: "pointer" } }}
+            sx={{ display: { xs: "none", cursor: "pointer" } }}
             onClick={() => router.push("/")}
           >
             {props.title}
@@ -130,12 +129,16 @@ export default function Navbar(props) {
               }}
               color="inherit"
             >
-              {!isEmpty && (
-                <Badge badgeContent={totalItems} color="secondary">
+              {totalItems && (
+                <Badge
+                  component="div"
+                  badgeContent={totalItems}
+                  color="secondary"
+                  sx={{ display: isEmpty ? "none" : "block" }}
+                >
                   <ShoppingCartIcon />
                 </Badge>
               )}
-              {isEmpty && <ShoppingCartIcon />}
             </IconButton>
             <IconButton
               size="large"

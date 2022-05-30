@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import {
   Grid,
   Paper,
-  Tabs,
-  Tab,
   Avatar,
   Typography,
   TextField,
