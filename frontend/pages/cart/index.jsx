@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import {
   Grid,
   Paper,
+  Tabs,
+  Tab,
   Avatar,
   Typography,
   TextField,
@@ -31,6 +33,8 @@ function Cart() {
     cvc: "",
     focus: "",
   });
+
+  const [tab, setTab] = useState(0);
 
   const handleInputFocus = (e) => {
     setCardDetails({
@@ -64,7 +68,12 @@ function Cart() {
         <Grid container justifyContent={"center"}>
           <h1>My Cart ({totalItems})</h1>
         </Grid>
-        <Grid container justifyContent={"center"} sx={{ mb: 5 }}>
+        <Grid
+          container
+          justifyContent={"center"}
+          xs={6}
+          sx={{ height: "80vh", overflow: "scroll" }}
+        >
           <List>
             {items.map((item) => (
               <ListItem key={item.id}>
@@ -113,7 +122,13 @@ function Cart() {
             ))}
           </List>
         </Grid>
-        <Grid container flexDirection={"row"} item xs={6} sx={{ mb: 5 }}>
+        <Grid
+          container
+          alignItems={"center"}
+          item
+          xs={6}
+          sx={{ mb: 5, height: "80vh" }}
+        >
           <Grid item xs={6}>
             <Cards
               cvc={cardDetails.cvc}
@@ -168,12 +183,12 @@ function Cart() {
               size="small"
             />
           </Grid>
-        </Grid>
-        <Grid container justifyContent={"center"} sx={{ mb: 5 }}>
-          <Grid item xs={4}>
-            <Button fullWidth variant="contained">
-              CHECKOUT
-            </Button>
+          <Grid container justifyContent={"flex-end"} sx={{ mb: 5 }}>
+            <Grid item xs={4}>
+              <Button fullWidth variant="contained">
+                CHECKOUT
+              </Button>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
